@@ -1,3 +1,2 @@
 {
-  alias = "farm/controller",
-}
+  fc = "farm/controller"
