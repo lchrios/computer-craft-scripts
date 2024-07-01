@@ -11,17 +11,16 @@ print(" - Label: " .. os.getComputerLabel())
 print(" - Farm: " .. config.FARM)
 print(" - fcp (Farm Comms Protocol): " .. config.ID)
 
-
 if multishell then
-  local program = "farm/controller.lua"
+  local program = "farm/gui.lua"
 
-  local tabID = multishell.launch({}, program)
+  local tabID = multishell.launch({shell, require}, program)
 
   multishell.setTitle(tabID, "Controller")
 
   multishell.setFocus(1)
 else
-  os.run({}, "farm/controller.lua")
+  shell.run("farm/gui.lua")
 
   while true do
     local event, id, text = os.pullEvent("key")
